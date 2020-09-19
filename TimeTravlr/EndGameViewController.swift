@@ -10,10 +10,13 @@ import UIKit
 
 class EndGameViewController: UIViewController {
 
+    @IBOutlet weak var gameImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        gameImage.image = convertToGrayScale(image: gameImage.image!)
     }
     
 
@@ -27,4 +30,28 @@ class EndGameViewController: UIViewController {
     }
     */
 
+    func convertToGrayScale(image: UIImage) -> UIImage {
+
+        // Create image rectangle with current image width/height
+        let imageRect:CGRect = CGRect(x:0, y:0, width:image.size.width, height: image.size.height)
+
+        // Grayscale color space
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let width = image.size.width
+        let height = image.size.height
+
+        // Create bitmap content with current image size and grayscale colorspace
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
+
+        // Draw image into current context, with specified rectangle
+        // using previously defined context (with grayscale colorspace)
+        let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+        context?.draw(image.cgImage!, in: imageRect)
+        let imageRef = context!.makeImage()
+
+        // Create a new UIImage object
+        let newImage = UIImage(cgImage: imageRef!)
+
+        return newImage
+    }
 }

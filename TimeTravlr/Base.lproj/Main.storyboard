@@ -26,7 +26,7 @@
                                     <segue destination="IdO-3G-2JS" kind="presentation" modalPresentationStyle="fullScreen" id="9x6-E4-5Ji"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape" translatesAutoresizingMaskIntoConstraints="NO" id="Kvi-AQ-59h">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2016" translatesAutoresizingMaskIntoConstraints="NO" id="Kvi-AQ-59h">
                                 <rect key="frame" x="38.5" y="379" width="337" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="Xp8-Br-sxg"/>
@@ -104,7 +104,7 @@
                                 <color key="textColor" red="0.3021993637" green="0.34107041360000001" blue="0.34902155400000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bwlandscape" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-Df-BzC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2016" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-Df-BzC">
                                 <rect key="frame" x="59.5" y="241" width="295" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="d1N-Mt-6Xy"/>
@@ -158,6 +158,9 @@
                         <viewLayoutGuide key="safeArea" id="1PY-ob-SCv"/>
                     </view>
                     <navigationItem key="navigationItem" id="AHi-nn-ylC"/>
+                    <connections>
+                        <outlet property="gameImage" destination="TZd-Df-BzC" id="Cdh-HN-qfU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sun-hY-SlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -224,8 +227,7 @@
         <segue reference="MHE-RW-qWj"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="bwlandscape" width="1440" height="961"/>
-        <image name="landscape" width="1440" height="961"/>
+        <image name="2016" width="590" height="426"/>
         <image name="logoplaceholder" width="1500" height="1496"/>
     </resources>
 </document>
