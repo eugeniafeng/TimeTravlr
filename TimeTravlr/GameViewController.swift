@@ -10,7 +10,7 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-    let URL_IMAGE = URL(string: "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/0d5fb7a94b62bfc7848ec19ce2cc90b7-27172365d41070e0324d994e0bbb278c:getPixels")
+    let URL_IMAGE = URL(string: "https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188336.jpg")
     
     @IBOutlet weak var gameImage: UIImageView!
     
