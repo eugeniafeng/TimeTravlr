@@ -11,12 +11,13 @@ import UIKit
 class EndGameViewController: UIViewController {
 
     @IBOutlet weak var gameImage: UIImageView!
+    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        gameImage.image = convertToGrayScale(image: gameImage.image!)
+        gameImage.image = convertToGrayScale(image: image!)
     }
     
 

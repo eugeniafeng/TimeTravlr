@@ -16,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQQ-fd-duo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQQ-fd-duo">
                                 <rect key="frame" x="167.5" y="716" width="79" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Check">
                                     <color key="titleColor" red="0.74428968890000002" green="0.58112475370000005" blue="0.6091479138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IdO-3G-2JS" kind="presentation" modalPresentationStyle="fullScreen" id="9x6-E4-5Ji"/>
+                                    <segue destination="IdO-3G-2JS" kind="presentation" identifier="endGame" modalPresentationStyle="fullScreen" id="9x6-E4-5Ji"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2016" translatesAutoresizingMaskIntoConstraints="NO" id="Kvi-AQ-59h">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2016 Mount Rainier" translatesAutoresizingMaskIntoConstraints="NO" id="Kvi-AQ-59h">
                                 <rect key="frame" x="38.5" y="379" width="337" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="Xp8-Br-sxg"/>
@@ -73,6 +73,7 @@
                     <connections>
                         <outlet property="checkButton" destination="OQQ-fd-duo" id="AgU-HM-MIQ"/>
                         <outlet property="gameImage" destination="Kvi-AQ-59h" id="bn7-je-p3q"/>
+                        <outlet property="guessTextField" destination="uFH-uc-VOX" id="nWa-v3-nJT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -105,7 +106,7 @@
                                 <color key="textColor" red="0.3021993637" green="0.34107041360000001" blue="0.34902155400000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2016" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-Df-BzC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2016 Mount Rainier" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-Df-BzC">
                                 <rect key="frame" x="59.5" y="241" width="295" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="d1N-Mt-6Xy"/>
@@ -229,7 +230,7 @@
         <segue reference="MHE-RW-qWj"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="2016" width="590" height="426"/>
+        <image name="2016 Mount Rainier" width="590" height="426"/>
         <image name="logoplaceholder" width="1500" height="1496"/>
     </resources>
 </document>
