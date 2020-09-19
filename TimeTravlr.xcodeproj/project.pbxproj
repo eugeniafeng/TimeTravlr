@@ -15,6 +15,9 @@
 		C97D26212515ADA20047743B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D261F2515ADA20047743B /* LaunchScreen.storyboard */; };
 		C97D262C2515ADA20047743B /* TimeTravlrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D262B2515ADA20047743B /* TimeTravlrTests.swift */; };
 		C97D26372515ADA30047743B /* TimeTravlrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D26362515ADA30047743B /* TimeTravlrUITests.swift */; };
+		C9BFB40F2516614E0078BDF3 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BFB40E2516614E0078BDF3 /* HomeScreenViewController.swift */; };
+		C9BFB411251661820078BDF3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BFB410251661820078BDF3 /* GameViewController.swift */; };
+		C9BFB4132516618E0078BDF3 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BFB4122516618E0078BDF3 /* EndGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		C97D26322515ADA30047743B /* TimeTravlrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTravlrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97D26362515ADA30047743B /* TimeTravlrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTravlrUITests.swift; sourceTree = "<group>"; };
 		C97D26382515ADA30047743B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9BFB40E2516614E0078BDF3 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		C9BFB410251661820078BDF3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		C9BFB4122516618E0078BDF3 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 				C97D261A2515AD9D0047743B /* Main.storyboard */,
 				C97D261D2515ADA20047743B /* Assets.xcassets */,
 				C97D261F2515ADA20047743B /* LaunchScreen.storyboard */,
+				C9BFB40E2516614E0078BDF3 /* HomeScreenViewController.swift */,
+				C9BFB410251661820078BDF3 /* GameViewController.swift */,
+				C9BFB4122516618E0078BDF3 /* EndGameViewController.swift */,
 				C97D26222515ADA20047743B /* Info.plist */,
 			);
 			path = TimeTravlr;
@@ -259,7 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BFB411251661820078BDF3 /* GameViewController.swift in Sources */,
 				C97D26192515AD9D0047743B /* ViewController.swift in Sources */,
+				C9BFB4132516618E0078BDF3 /* EndGameViewController.swift in Sources */,
+				C9BFB40F2516614E0078BDF3 /* HomeScreenViewController.swift in Sources */,
 				C97D26152515AD9D0047743B /* AppDelegate.swift in Sources */,
 				C97D26172515AD9D0047743B /* SceneDelegate.swift in Sources */,
 			);
