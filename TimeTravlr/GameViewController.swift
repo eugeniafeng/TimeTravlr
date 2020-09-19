@@ -15,31 +15,51 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     
     let URL_IMAGE = URL(string: "https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188336.jpg")
     
-    let randomInt = Int.random(in: 0..<10)
+    var randomInt = 0
     var score = 0
     var highScore = 0
+    var roundsCount = 0
     
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var guessTextField: UITextField!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var correctAnswerLabel: UILabel!
     @IBAction func checkButtonTouchedUp(_ sender: UIButton) {
         let year = places[baseImages[randomInt]]
         guard let guess = Int(guessTextField.text ?? "0") else { return }
         var roundScore = 0
         
-        if (abs(guess-year!) <= 10) {
-            roundScore = 10 - abs(guess-year!)
+        if checkButton.titleLabel!.text == "Check" {
+            if (abs(guess-year!) <= 100) {
+                roundScore = 100 - abs(guess-year!)
+            }
+            self.score = self.score + roundScore
+            correctAnswerLabel.text = "Correct Answer: " + String(year!)
+            checkButton.titleLabel!.text = "Next"
+            roundsCount = roundsCount + 1
+            // change the textbox so you can't change
+        }
+        else {
+            correctAnswerLabel.text = " "
+            checkButton.titleLabel!.text = "Check"
+            self.loadView()
+
         }
         
-        self.score = self.score + roundScore
+        if checkButton.titleLabel!.text == "Next" && roundsCount == 5 {
+            performSegue(withIdentifier: "endGame", sender: nil)
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        randomInt = Int.random(in: 0..<10)
         createTapGestureForRemovingKeyboard()
         gameImage.image = baseImages[randomInt]
+        correctAnswerLabel.text = " "
 
 //        let session = URLSession(configuration: .default)
 //
