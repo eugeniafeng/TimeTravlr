@@ -45,9 +45,9 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             // change the textbox so you can't change
         }
         else {
+            self.loadView()
             correctAnswerLabel.text = " "
             checkButton.titleLabel!.text = "Check"
-            self.loadView()
 
         }
         
