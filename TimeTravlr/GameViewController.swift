@@ -14,7 +14,6 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var gameImage: UIImageView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,8 +30,9 @@ class GameViewController: UIViewController {
                     
                     if let imageData = data{
                         let image = UIImage(data: imageData)
-                        
-                        self.gameImage.image = image
+                        DispatchQueue.main.async {
+                            self.gameImage.image = image
+                        }
                     } else {
                         print("no image  found")
                     }
