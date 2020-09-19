@@ -232,6 +232,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t5a-sZ-JUN"/>
                     </view>
+                    <connections>
+                        <outlet property="highScoreLabel" destination="OOF-p5-PW4" id="eus-c4-X1T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xj8-W3-nPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,8 +242,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9x6-E4-5Ji"/>
-        <segue reference="MHE-RW-qWj"/>
+        <segue reference="DnO-Br-jxA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="2016 Mount Rainier" width="590" height="426"/>

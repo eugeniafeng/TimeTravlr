@@ -9,11 +9,15 @@
 import UIKit
 
 class HomeScreenViewController: UIViewController {
+    
+    @IBOutlet weak var highScoreLabel: UILabel!
+    var highScore = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        highScoreLabel.text = "High Score: " + String(highScore)
     }
     
 
@@ -26,5 +30,11 @@ class HomeScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GameViewController {
+            vc.highScore = self.highScore
+        }
+    }
 
 }

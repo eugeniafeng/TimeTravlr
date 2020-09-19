@@ -17,6 +17,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     
     let randomInt = Int.random(in: 0..<10)
     var score = 0
+    var highScore = 0
     
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var checkButton: UIButton!
@@ -89,6 +90,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             vc.image = baseImages[randomInt]
             vc.year = places[baseImages[randomInt]]
             vc.score = self.score
+            vc.highScore = self.highScore
         }
     }
     

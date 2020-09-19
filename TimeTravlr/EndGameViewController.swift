@@ -70,4 +70,13 @@ class EndGameViewController: UIViewController {
 
         return newImage
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GameViewController {
+            vc.highScore = self.highScore
+        }
+        if let vc = segue.destination as? HomeScreenViewController {
+            vc.highScore = self.highScore
+        }
+    }
 }
