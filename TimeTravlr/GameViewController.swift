@@ -20,13 +20,16 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     var highScore = 0
     var roundsCount = 0
     
+    var location: [String: String] = [:]
+    var image: UIImage?
+    
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var guessTextField: UITextField!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var correctAnswerLabel: UILabel!
     @IBAction func checkButtonTouchedUp(_ sender: UIButton) {
-        let year = places[baseImages[randomInt]]
+        let year = Int(location["year1"]!)
         guard let guess = Int(guessTextField.text ?? "0") else { return }
         var roundScore = 0
         
@@ -60,7 +63,10 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         randomInt = Int.random(in: 0..<10)
         createTapGestureForRemovingKeyboard()
-        gameImage.image = baseImages[randomInt]
+        location = Constants.IMAGES[Int.random(in: 0..<Constants.IMAGES.count)]
+        let image1FileName = getImageFileName(location["location"]!, location["year1"]!)
+        image = UIImage(named: image1FileName)!
+        gameImage.image = image
         correctAnswerLabel.text = " "
 
 //        let session = URLSession(configuration: .default)
@@ -89,6 +95,12 @@ class GameViewController: UIViewController, UITextFieldDelegate {
 //        getImageFromUrl.resume()
     }
     
+    private func getImageFileName(_ location: String, _ year: String) -> String {
+        var firstWord = location.components(separatedBy: " ")[0].lowercased()
+        firstWord = firstWord.replacingOccurrences(of: ",", with: "")
+        return firstWord + year
+    }
+    
     // Creates a tap gesture for removing any visible keyboard when the screen is tapped.
      private func createTapGestureForRemovingKeyboard() {
          let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
@@ -109,8 +121,8 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? EndGameViewController {
-            vc.image = baseImages[randomInt]
-            vc.year = places[baseImages[randomInt]]
+            vc.image = image!
+            vc.year = Int(location["year1"]!)!
             vc.score = self.score
             vc.highScore = self.highScore
         }
