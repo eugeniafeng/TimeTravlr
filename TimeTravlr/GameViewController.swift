@@ -14,19 +14,44 @@ class GameViewController: UIViewController {
     let baseImages: [UIImage] = [UIImage(named: "1902 Hawaii")!, UIImage(named: "1914 Porterville California")!, UIImage(named: "1915 Yosemite")!, UIImage(named: "1929 New York")!, UIImage(named: "1947 Philadelphia")!, UIImage(named: "1950 Old Faithful")!, UIImage(named: "1966 London")!, UIImage(named: "1971 New York")!, UIImage(named: "2016 Mount Rainier")!, UIImage(named: "2018 Yosemite")!]
     
     let URL_IMAGE = URL(string: "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/0d5fb7a94b62bfc7848ec19ce2cc90b7-27172365d41070e0324d994e0bbb278c:getPixels")
-    
+
+    let URL_IMAGE = URL(string: "https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188336.jpg")
     let randomInt = Int.random(in: 0..<10)
     
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var guessTextField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // gameImage.image =
         createTapGestureForRemovingKeyboard()
+//        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: .default)
+        
+        let getImageFromUrl = session.dataTask(with: URL_IMAGE!) { (data, response, error) in
+            if let e = error{
+                print("Some error occurred: \(e)")
+            } else {
+                
+                if(response as? HTTPURLResponse) != nil{
+                    
+                    if let imageData = data{
+                        let image = UIImage(data: imageData)
+                        DispatchQueue.main.async {
+                            self.gameImage.image = image
+                        }
+                    } else {
+                        print("no image  found")
+                    }
+                    
+                } else{
+                    print("No response from server")
+                }
+            }
+        }
+        getImageFromUrl.resume()
 //        let session = URLSession(configuration: .default)
 //
 //        let getImageFromUrl = session.dataTask(with: URL_IMAGE!) { (data, response, error) in
@@ -53,7 +78,6 @@ class GameViewController: UIViewController {
         
         gameImage.image = baseImages[randomInt]
         
-    }
     
     
     // Creates a tap gesture for removing any visible keyboard when the screen is tapped.
