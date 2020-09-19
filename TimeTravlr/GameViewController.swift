@@ -77,6 +77,7 @@ class GameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? EndGameViewController {
             vc.image = baseImages[randomInt]
+            vc.year = places[baseImages[randomInt]]
         }
     }
     

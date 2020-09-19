@@ -161,6 +161,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AHi-nn-ylC"/>
                     <connections>
+                        <outlet property="correctAnswerLabel" destination="qYi-MC-Ke6" id="yyP-aO-q8p"/>
                         <outlet property="gameImage" destination="TZd-Df-BzC" id="Cdh-HN-qfU"/>
                     </connections>
                 </viewController>
@@ -226,7 +227,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9x6-E4-5Ji"/>
         <segue reference="MHE-RW-qWj"/>
     </inferredMetricsTieBreakers>
     <resources>

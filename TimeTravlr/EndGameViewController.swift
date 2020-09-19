@@ -11,13 +11,16 @@ import UIKit
 class EndGameViewController: UIViewController {
 
     @IBOutlet weak var gameImage: UIImageView!
+    @IBOutlet weak var correctAnswerLabel: UILabel!
     var image: UIImage?
+    var year: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         gameImage.image = convertToGrayScale(image: image!)
+        correctAnswerLabel.text = "Correct Answer: " + String(year!)
     }
     
 
