@@ -30,6 +30,10 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         guard let guess = Int(guessTextField.text ?? "0") else { return }
         var roundScore = 0
         
+        if checkButton.titleLabel!.text == "Next" && roundsCount == 5 {
+            performSegue(withIdentifier: "endGame", sender: nil)
+        }
+        
         if checkButton.titleLabel!.text == "Check" {
             if (abs(guess-year!) <= 100) {
                 roundScore = 100 - abs(guess-year!)
@@ -47,9 +51,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
 
         }
         
-        if checkButton.titleLabel!.text == "Next" && roundsCount == 5 {
-            performSegue(withIdentifier: "endGame", sender: nil)
-        }
+
         
     }
     
