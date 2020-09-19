@@ -23,6 +23,7 @@
                                     <color key="titleColor" red="0.74428968890000002" green="0.58112475370000005" blue="0.6091479138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
+                                    <action selector="checkButtonTouchedUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pc4-iz-64D"/>
                                     <segue destination="IdO-3G-2JS" kind="presentation" identifier="endGame" modalPresentationStyle="fullScreen" id="9x6-E4-5Ji"/>
                                 </connections>
                             </button>
@@ -74,6 +75,7 @@
                         <outlet property="checkButton" destination="OQQ-fd-duo" id="AgU-HM-MIQ"/>
                         <outlet property="gameImage" destination="Kvi-AQ-59h" id="bn7-je-p3q"/>
                         <outlet property="guessTextField" destination="uFH-uc-VOX" id="nWa-v3-nJT"/>
+                        <outlet property="scoreLabel" destination="Dvu-p5-mfk" id="3xw-iQ-cHq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -162,7 +164,9 @@
                     <navigationItem key="navigationItem" id="AHi-nn-ylC"/>
                     <connections>
                         <outlet property="correctAnswerLabel" destination="qYi-MC-Ke6" id="yyP-aO-q8p"/>
+                        <outlet property="finalScoreLabel" destination="EWf-tW-P34" id="CNH-rZ-zgS"/>
                         <outlet property="gameImage" destination="TZd-Df-BzC" id="Cdh-HN-qfU"/>
+                        <outlet property="highScoreLabel" destination="ZUa-Xv-gTe" id="3s9-rW-iIq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sun-hY-SlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -235,7 +239,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DnO-Br-jxA"/>
+        <segue reference="9x6-E4-5Ji"/>
+        <segue reference="MHE-RW-qWj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="2016 Mount Rainier" width="590" height="426"/>

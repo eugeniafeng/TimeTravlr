@@ -12,8 +12,12 @@ class EndGameViewController: UIViewController {
 
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var correctAnswerLabel: UILabel!
+    @IBOutlet weak var finalScoreLabel: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
     var image: UIImage?
     var year: Int?
+    var score: Int?
+    var highScore = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +25,14 @@ class EndGameViewController: UIViewController {
         // Do any additional setup after loading the view.
         gameImage.image = convertToGrayScale(image: image!)
         correctAnswerLabel.text = "Correct Answer: " + String(year!)
+        finalScoreLabel.text = "Final Score: " + String(score!)
+        
+        if score ?? 0 > highScore {
+            highScore = score!
+        }
+        
+        highScoreLabel.text = "High Score: " + String(highScore)
+        
     }
     
 
