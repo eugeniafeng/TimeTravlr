@@ -28,30 +28,30 @@ class GameViewController: UIViewController {
         createTapGestureForRemovingKeyboard()
         gameImage.image = baseImages[randomInt]
 
-        let session = URLSession(configuration: .default)
-        
-        let getImageFromUrl = session.dataTask(with: URL_IMAGE!) { (data, response, error) in
-            if let e = error{
-                print("Some error occurred: \(e)")
-            } else {
-                
-                if(response as? HTTPURLResponse) != nil{
-                    
-                    if let imageData = data{
-                        let image = UIImage(data: imageData)
-                        DispatchQueue.main.async {
-                            self.gameImage.image = image
-                        }
-                    } else {
-                        print("no image  found")
-                    }
-                    
-                } else{
-                    print("No response from server")
-                }
-            }
-        }
-        getImageFromUrl.resume()
+//        let session = URLSession(configuration: .default)
+//
+//        let getImageFromUrl = session.dataTask(with: URL_IMAGE!) { (data, response, error) in
+//            if let e = error{
+//                print("Some error occurred: \(e)")
+//            } else {
+//
+//                if(response as? HTTPURLResponse) != nil{
+//
+//                    if let imageData = data{
+//                        let image = UIImage(data: imageData)
+//                        DispatchQueue.main.async {
+//                            self.gameImage.image = image
+//                        }
+//                    } else {
+//                        print("no image  found")
+//                    }
+//
+//                } else{
+//                    print("No response from server")
+//                }
+//            }
+//        }
+//        getImageFromUrl.resume()
     }
         
     

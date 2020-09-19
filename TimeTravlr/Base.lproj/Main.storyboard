@@ -177,10 +177,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trees" translatesAutoresizingMaskIntoConstraints="NO" id="oO4-o1-1Ct">
+                                <rect key="frame" x="-25" y="-25" width="464" height="946"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeTravlr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSQ-G7-YB9">
                                 <rect key="frame" x="101.5" y="419" width="211" height="58.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                <color key="textColor" red="0.3021993637" green="0.34107041360000001" blue="0.34902155400000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.95641833539999999" green="0.88665896649999998" blue="0.85097450019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="hMr-lU-3KJ">
@@ -191,31 +194,36 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjs-CY-h4Z">
-                                <rect key="frame" x="167" y="547.5" width="80" height="58"/>
+                                <rect key="frame" x="167" y="709" width="80" height="58"/>
+                                <color key="backgroundColor" red="0.87040328980000004" green="0.85913699870000004" blue="0.82744652029999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <state key="normal" title="Play!">
-                                    <color key="titleColor" red="0.74428968891269043" green="0.58112475368122496" blue="0.60914791379199851" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.74428968890000002" green="0.58112475370000005" blue="0.6091479138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="DnO-Br-jxA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOF-p5-PW4">
-                                <rect key="frame" x="128" y="759.5" width="158.5" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.3021993637" green="0.34107041360000001" blue="0.34902155400000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="113.5" y="629" width="187" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.95641833539999999" green="0.88665896649999998" blue="0.85097450019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87040328980000004" green="0.85913699870000004" blue="0.82744652029999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Qjs-CY-h4Z" firstAttribute="top" secondItem="RSQ-G7-YB9" secondAttribute="bottom" constant="70" id="0qd-7B-FZD"/>
+                            <constraint firstItem="oO4-o1-1Ct" firstAttribute="leading" secondItem="ym6-pG-oK7" secondAttribute="leading" constant="-25" id="0Dg-ex-3NN"/>
+                            <constraint firstItem="oO4-o1-1Ct" firstAttribute="top" secondItem="ym6-pG-oK7" secondAttribute="top" constant="-25" id="9f8-bC-brd"/>
                             <constraint firstItem="OOF-p5-PW4" firstAttribute="centerX" secondItem="ym6-pG-oK7" secondAttribute="centerX" id="J38-xn-H7Z"/>
+                            <constraint firstAttribute="bottom" secondItem="oO4-o1-1Ct" secondAttribute="bottom" constant="-25" id="Jqx-vJ-c75"/>
+                            <constraint firstItem="Qjs-CY-h4Z" firstAttribute="top" secondItem="OOF-p5-PW4" secondAttribute="bottom" constant="41.5" id="Orw-Wv-hmh"/>
                             <constraint firstItem="RSQ-G7-YB9" firstAttribute="centerY" secondItem="ym6-pG-oK7" secondAttribute="centerY" id="UaB-0U-g41"/>
                             <constraint firstItem="Qjs-CY-h4Z" firstAttribute="centerX" secondItem="ym6-pG-oK7" secondAttribute="centerX" id="cDg-eo-GRU"/>
-                            <constraint firstItem="t5a-sZ-JUN" firstAttribute="bottom" secondItem="OOF-p5-PW4" secondAttribute="bottom" constant="70" id="fyQ-h4-bac"/>
                             <constraint firstItem="hMr-lU-3KJ" firstAttribute="centerX" secondItem="ym6-pG-oK7" secondAttribute="centerX" id="hTk-cg-dJI"/>
                             <constraint firstItem="RSQ-G7-YB9" firstAttribute="centerX" secondItem="ym6-pG-oK7" secondAttribute="centerX" id="ith-Z8-OU5"/>
+                            <constraint firstAttribute="trailing" secondItem="oO4-o1-1Ct" secondAttribute="trailing" constant="-25" id="oeT-sB-6cX"/>
+                            <constraint firstItem="t5a-sZ-JUN" firstAttribute="bottom" secondItem="Qjs-CY-h4Z" secondAttribute="bottom" constant="95" id="rQm-0J-w4r"/>
                             <constraint firstItem="hMr-lU-3KJ" firstAttribute="top" secondItem="t5a-sZ-JUN" secondAttribute="top" constant="110" id="tBN-yu-kgc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t5a-sZ-JUN"/>
@@ -223,14 +231,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xj8-W3-nPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="315.94202898550725" y="109.82142857142857"/>
+            <point key="canvasLocation" x="314.49275362318843" y="109.82142857142857"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MHE-RW-qWj"/>
+        <segue reference="DnO-Br-jxA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="2016 Mount Rainier" width="590" height="426"/>
         <image name="logoplaceholder" width="1500" height="1496"/>
+        <image name="trees" width="1001" height="1001"/>
     </resources>
 </document>
