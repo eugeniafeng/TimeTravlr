@@ -10,52 +10,41 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    let URL_IMAGE = URL(string: "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/0d5fb7a94b62bfc7848ec19ce2cc90b7-27172365d41070e0324d994e0bbb278c:getPixels")
+    
     @IBOutlet weak var gameImage: UIImageView!
     
-    func setImage(from url: String) {
-        guard let imageURL = URL(string: url) else { return }
-
-            // just not to cause a deadlock in UI!
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async {
-                self.gameImage.image = image
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setImage (from: "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/0d5fb7a94b62bfc7848ec19ce2cc90b7-27172365d41070e0324d994e0bbb278c:getPixels")
         // Do any additional setup after loading the view.
         // gameImage.image =
         createTapGestureForRemovingKeyboard()
+        let session = URLSession(configuration: .default)
         
-        let imageUrlString = "http://swiftdeveloperblog.com/wp-content/uploads/2015/07/1.jpeg"
-        guard let imageUrl:URL = URL(string: imageUrlString) else {
-            return
-        }
-             
-        // Start background thread so that image loading does not make app unresponsive
-        DispatchQueue.global().async { [weak self] in
-                 
-            guard let self = self else { return }
-                 
-            guard let imageData = try? Data(contentsOf: imageUrl) else {
-                return
-            }
-                 
-            // When from a background thread, UI needs to be updated on main_queue
-            DispatchQueue.main.async {
-                let image = UIImage(data: imageData)
-                self.gameImage.image = image
-                self.gameImage.contentMode = UIView.ContentMode.scaleAspectFit
-                self.view.addSubview(self.gameImage)
+        let getImageFromUrl = session.dataTask(with: URL_IMAGE!) { (data, response, error) in
+            if let e = error{
+                print("Some error occurred: \(e)")
+            } else {
+                
+                if(response as? HTTPURLResponse) != nil{
+                    
+                    if let imageData = data{
+                        let image = UIImage(data: imageData)
+                        
+                        self.gameImage.image = image
+                    } else {
+                        print("no image  found")
+                    }
+                    
+                } else{
+                    print("No response from server")
+                }
             }
         }
+        getImageFromUrl.resume()
     }
+    
     
     // Creates a tap gesture for removing any visible keyboard when the screen is tapped.
      private func createTapGestureForRemovingKeyboard() {
