@@ -10,13 +10,15 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var gameImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
     // MARK: - Navigation
 
