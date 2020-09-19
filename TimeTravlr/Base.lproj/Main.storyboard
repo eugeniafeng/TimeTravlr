@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQQ-fd-duo">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQQ-fd-duo">
                                 <rect key="frame" x="167.5" y="716" width="79" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Check">
@@ -71,6 +71,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="s5H-ef-1TW"/>
                     <connections>
+                        <outlet property="checkButton" destination="OQQ-fd-duo" id="AgU-HM-MIQ"/>
                         <outlet property="gameImage" destination="Kvi-AQ-59h" id="bn7-je-p3q"/>
                     </connections>
                 </viewController>
@@ -224,6 +225,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="9x6-E4-5Ji"/>
         <segue reference="MHE-RW-qWj"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -11,6 +11,7 @@ import UIKit
 class GameViewController: UIViewController {
 
     @IBOutlet weak var gameImage: UIImageView!
+    @IBOutlet weak var checkButton: UIButton!
     
     func setImage(from url: String) {
         guard let imageURL = URL(string: url) else { return }
