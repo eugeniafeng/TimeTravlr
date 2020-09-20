@@ -18,7 +18,7 @@ class Constants: NSObject {
         ["location": "Dubai, UAE", "year1": "2001", "year2": "2013"],
         ["location": "Alberta, Canada", "year1": "1989", "year2": "2015"],
         ["location": "Iquitos, Peru", "year1": "1985", "year2": "2018"],
-        ["location": "Ji-Parana, Brazil", "year1": "1984", "year2": "2018"],
+        ["location": "Ji-Parana, Brazil", "year1": "1988", "year2": "2018"],
         ["location": "Las Vegas, NV", "year1": "1984", "year2": "1998"],
         ["location": "Liaoning, China", "year1": "1987", "year2": "2015"],
         ["location": "Naypyitaw, Myanmar", "year1": "1987", "year2": "2019"],

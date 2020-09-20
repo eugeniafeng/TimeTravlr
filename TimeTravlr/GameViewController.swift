@@ -9,64 +9,78 @@
 import UIKit
 
 class GameViewController: UIViewController, UITextFieldDelegate {
-    
+
+/*
     let places: [UIImage: Int] = [UIImage(named: "1902 Hawaii")!: 1902, UIImage(named: "1914 Porterville California")!: 1914, UIImage(named: "1915 Yosemite")!: 1915, UIImage(named: "1929 New York")!: 1929, UIImage(named: "1947 Philadelphia")!: 1947, UIImage(named: "1950 Old Faithful")!: 1950, UIImage(named: "1966 London")!: 1966, UIImage(named: "1971 New York")!: 1971, UIImage(named: "2016 Mount Rainier")!: 2016, UIImage(named: "2018 Yosemite")!: 2018]
     var baseImages: [UIImage] = [UIImage(named: "1902 Hawaii")!, UIImage(named: "1914 Porterville California")!, UIImage(named: "1915 Yosemite")!, UIImage(named: "1929 New York")!, UIImage(named: "1947 Philadelphia")!, UIImage(named: "1950 Old Faithful")!, UIImage(named: "1966 London")!, UIImage(named: "1971 New York")!, UIImage(named: "2016 Mount Rainier")!, UIImage(named: "2018 Yosemite")!]
     
 //    let URL_IMAGE = URL(string: "https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188336.jpg")
+*/
     
     var score = 0
     var highScore = 0
     var roundsCount = 0
     
     var location: [String:String] = [:]
-    var image: UIImage?
+    var year: Int = -1
+    var image2: UIImage?
     
     @IBOutlet weak var gameImage: UIImageView!
+    @IBOutlet weak var firstYearLabel: UILabel!
+    @IBOutlet weak var gameImage2: UIImageView!
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var guessTextField: UITextField!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var correctAnswerLabel: UILabel!
+    @IBOutlet weak var placeLabel: UILabel!
     @IBAction func checkButtonTouchedUp(_ sender: UIButton) {
-        let year = Int(location["year1"]!)
         guard let guess = Int(guessTextField.text ?? "0") else { return }
         var roundScore = 0
         
-        if checkButton.titleLabel!.text == "Next" && roundsCount == 18 {
+        if checkButton.titleLabel!.text == "Next" && roundsCount == 5 {
             performSegue(withIdentifier: "endGame", sender: nil)
         }
         else if checkButton.titleLabel!.text == "Check" {
-            if (abs(guess-year!) <= 100) {
-                if (abs(guess-year!) >= 50) {
-                    roundScore = Int(0.5*Double(100-abs(guess-year!)))
-                } else if (abs(guess-year!) >= 25) {
-                    roundScore = 75 - abs(guess-year!)
+            if (abs(guess-year) <= 100) {
+                if (abs(guess-year) >= 50) {
+                    roundScore = Int(0.5*Double(100-abs(guess-year)))
+                } else if (abs(guess-year) >= 25) {
+                    roundScore = 75 - abs(guess-year)
                 } else {
-                    roundScore = 2*(50 - abs(guess-year!))
+                    roundScore = 2*(50 - abs(guess-year))
                 }
             }
             self.score = self.score + roundScore
             roundScore = 0
-            correctAnswerLabel.text = "Correct Answer: " + String(year!)
+            correctAnswerLabel.text = "Correct Answer: " + String(year)
+            placeLabel.text = location["location"]!
             checkButton.setTitle("Next", for: .normal)
             guessTextField.isEnabled = false
             scoreLabel.text = "Score: " + String(score)
             roundsCount = roundsCount + 1
             gameImage.image = convertToGrayScale(image: gameImage.image!)
+            gameImage2.image = convertToGrayScale(image: gameImage2.image!)
         }
         else {
             self.loadView()
             correctAnswerLabel.text = " "
+            placeLabel.text = " "
             guessTextField.isEnabled = true
             checkButton.setTitle("Check", for: .normal)
             scoreLabel.text = "Score: " + String(score)
             location = Constants.IMAGES[roundsCount]
-            let image1FileName = getImageFileName(location["location"]!, location["year1"]!)
-            image = UIImage(named: image1FileName)!
-            gameImage.image = image
+            
+            let revealed = Int.random(in: 1..<3)
+            let image1FileName = getImageFileName(location["location"]!, revealed == 1 ? location["year1"]! : location["year2"]!)
+            gameImage.image = UIImage(named: image1FileName)!
+            firstYearLabel.text = "Year: \(revealed == 1 ? location["year1"]! : location["year2"]!)"
+            let image2FileName = getImageFileName(location["location"]!, revealed == 1 ? location["year2"]! : location["year1"]!)
+            image2 = UIImage(named: image2FileName)!
+            gameImage2.image = image2
+            year = revealed == 1 ? Int(location["year2"]!)! : Int(location["year1"]!)!
+            
             createTapGestureForRemovingKeyboard()
             setUpKeyboardObservers()
-
         }
         
 
@@ -80,10 +94,18 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         createTapGestureForRemovingKeyboard()
         setUpKeyboardObservers()
         location = Constants.IMAGES[roundsCount]
-        let image1FileName = getImageFileName(location["location"]!, location["year1"]!)
-        image = UIImage(named: image1FileName)!
-        gameImage.image = image
+        
+        let revealed = Int.random(in: 1..<3)
+        let image1FileName = getImageFileName(location["location"]!, revealed == 1 ? location["year1"]! : location["year2"]!)
+        gameImage.image = UIImage(named: image1FileName)!
+        firstYearLabel.text = "Year: \(revealed == 1 ? location["year1"]! : location["year2"]!)"
+        let image2FileName = getImageFileName(location["location"]!, revealed == 1 ? location["year2"]! : location["year1"]!)
+        image2 = UIImage(named: image2FileName)!
+        gameImage2.image = image2
+        year = revealed == 1 ? Int(location["year2"]!)! : Int(location["year1"]!)!
+        
         correctAnswerLabel.text = " "
+        placeLabel.text = " "
         scoreLabel.text = "Score: " + String(score)
 
 //        let session = URLSession(configuration: .default)
@@ -188,7 +210,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? EndGameViewController {
-            vc.image = image!
+            vc.image = image2!
             vc.score = self.score
             vc.highScore = self.highScore
         }
