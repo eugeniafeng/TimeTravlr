@@ -42,7 +42,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
                 } else if (abs(guess-year!) >= 25) {
                     roundScore = 75 - abs(guess-year!)
                 } else {
-                    roundScore = 2*(25 - abs(guess-year!))
+                    roundScore = 2*(50 - abs(guess-year!))
                 }
             }
             self.score = self.score + roundScore
