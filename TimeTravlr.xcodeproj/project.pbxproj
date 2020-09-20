@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D8442B02516C95000EE160F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8442AF2516C95000EE160F /* Constants.swift */; };
 		C97D26152515AD9D0047743B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D26142515AD9D0047743B /* AppDelegate.swift */; };
 		C97D26172515AD9D0047743B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D26162515AD9D0047743B /* SceneDelegate.swift */; };
 		C97D26192515AD9D0047743B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D26182515AD9D0047743B /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D8442AF2516C95000EE160F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C97D26112515AD9D0047743B /* TimeTravlr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTravlr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97D26142515AD9D0047743B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C97D26162515AD9D0047743B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				C9BFB410251661820078BDF3 /* GameViewController.swift */,
 				C9BFB4122516618E0078BDF3 /* EndGameViewController.swift */,
 				C97D26222515ADA20047743B /* Info.plist */,
+				4D8442AF2516C95000EE160F /* Constants.swift */,
 			);
 			path = TimeTravlr;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				C97D26192515AD9D0047743B /* ViewController.swift in Sources */,
 				C9BFB4132516618E0078BDF3 /* EndGameViewController.swift in Sources */,
 				C9BFB40F2516614E0078BDF3 /* HomeScreenViewController.swift in Sources */,
+				4D8442B02516C95000EE160F /* Constants.swift in Sources */,
 				C97D26152515AD9D0047743B /* AppDelegate.swift in Sources */,
 				C97D26172515AD9D0047743B /* SceneDelegate.swift in Sources */,
 			);
