@@ -33,21 +33,27 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         if checkButton.titleLabel!.text == "Next" && roundsCount == 5 {
             performSegue(withIdentifier: "endGame", sender: nil)
         }
-        
-        if checkButton.titleLabel!.text == "Check" {
+        else if checkButton.titleLabel!.text == "Check" {
             if (abs(guess-year!) <= 100) {
                 roundScore = 100 - abs(guess-year!)
             }
             self.score = self.score + roundScore
+            roundScore = 0
             correctAnswerLabel.text = "Correct Answer: " + String(year!)
-            checkButton.titleLabel!.text = "Next"
+            checkButton.setTitle("Next", for: .normal)
+            guessTextField.isEnabled = false
+            scoreLabel.text = "Score: " + String(score)
             roundsCount = roundsCount + 1
-            // change the textbox so you can't change
+            gameImage.image = convertToGrayScale(image: gameImage.image!)
         }
         else {
             self.loadView()
             correctAnswerLabel.text = " "
-            checkButton.titleLabel!.text = "Check"
+            guessTextField.isEnabled = true
+            checkButton.setTitle("Check", for: .normal)
+            randomInt = Int.random(in: 0..<10)
+            scoreLabel.text = "Score: " + String(score)
+            gameImage.image = baseImages[randomInt]
 
         }
         
@@ -58,10 +64,11 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        randomInt = Int.random(in: 0..<10)
         createTapGestureForRemovingKeyboard()
+        randomInt = Int.random(in: 0..<10)
         gameImage.image = baseImages[randomInt]
         correctAnswerLabel.text = " "
+        scoreLabel.text = "Score: " + String(score)
 
 //        let session = URLSession(configuration: .default)
 //
@@ -94,6 +101,31 @@ class GameViewController: UIViewController, UITextFieldDelegate {
          let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
          view.addGestureRecognizer(tap)
      }
+    
+    func convertToGrayScale(image: UIImage) -> UIImage {
+
+        // Create image rectangle with current image width/height
+        let imageRect:CGRect = CGRect(x:0, y:0, width:image.size.width, height: image.size.height)
+
+        // Grayscale color space
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let width = image.size.width
+        let height = image.size.height
+
+        // Create bitmap content with current image size and grayscale colorspace
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
+
+        // Draw image into current context, with specified rectangle
+        // using previously defined context (with grayscale colorspace)
+        let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+        context?.draw(image.cgImage!, in: imageRect)
+        let imageRef = context!.makeImage()
+
+        // Create a new UIImage object
+        let newImage = UIImage(cgImage: imageRef!)
+
+        return newImage
+    }
 
     
     /*
@@ -110,15 +142,10 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? EndGameViewController {
             vc.image = baseImages[randomInt]
-            vc.year = places[baseImages[randomInt]]
             vc.score = self.score
             vc.highScore = self.highScore
         }
     }
     
-    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
 }
 
