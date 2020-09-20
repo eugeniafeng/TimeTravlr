@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQQ-fd-duo">
-                                <rect key="frame" x="167.5" y="749" width="79" height="46"/>
+                                <rect key="frame" x="167.5" y="792" width="79" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Check">
                                     <color key="titleColor" red="0.74428968890000002" green="0.58112475370000005" blue="0.6091479138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -28,14 +28,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2016 Mount Rainier" translatesAutoresizingMaskIntoConstraints="NO" id="Kvi-AQ-59h">
-                                <rect key="frame" x="38.5" y="379" width="337" height="240"/>
+                                <rect key="frame" x="56.5" y="169" width="301" height="215"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="Xp8-Br-sxg"/>
-                                    <constraint firstAttribute="width" constant="337" id="d6B-4O-dYO"/>
+                                    <constraint firstAttribute="height" constant="215" id="Gwq-Cp-1Sj"/>
+                                    <constraint firstAttribute="width" constant="301" id="YFZ-5O-d8u"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uFH-uc-VOX">
-                                <rect key="frame" x="74.5" y="265.5" width="265" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Guess" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uFH-uc-VOX">
+                                <rect key="frame" x="74.5" y="675" width="265" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="265" id="NMd-a3-9p7"/>
                                 </constraints>
@@ -43,39 +43,56 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess the Year!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-Mn-C5V">
-                                <rect key="frame" x="96" y="155" width="222" height="39.5"/>
+                                <rect key="frame" x="96" y="98" width="222" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <color key="textColor" red="0.3021993637" green="0.34107041360000001" blue="0.34902155400000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvu-p5-mfk">
-                                <rect key="frame" x="296" y="79" width="79" height="26.5"/>
+                                <rect key="frame" x="294" y="53" width="79" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.3021993637" green="0.34107041360000001" blue="0.34902155400000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct Answer: 2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvM-Y0-Zl2">
-                                <rect key="frame" x="101.5" y="700" width="211" height="27"/>
+                                <rect key="frame" x="101.5" y="746" width="211" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.3021993637" green="0.34107041360000001" blue="0.34902155400000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year: 2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDj-Md-Wfx">
+                                <rect key="frame" x="154.5" y="391" width="105" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2016 Mount Rainier" translatesAutoresizingMaskIntoConstraints="NO" id="NeX-dH-FWd">
+                                <rect key="frame" x="56.5" y="449" width="301" height="215"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="215" id="T5M-0R-6DT"/>
+                                    <constraint firstAttribute="width" constant="301" id="xiD-gZ-5PR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.87040328980000004" green="0.85913699870000004" blue="0.82744652029999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Kvi-AQ-59h" firstAttribute="top" secondItem="uFH-uc-VOX" secondAttribute="bottom" constant="79.5" id="1u4-z8-E49"/>
-                            <constraint firstItem="Dvu-p5-mfk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="5dO-iJ-5BE"/>
+                            <constraint firstItem="uFH-uc-VOX" firstAttribute="top" secondItem="NeX-dH-FWd" secondAttribute="bottom" constant="11" id="A4v-cK-NKB"/>
                             <constraint firstItem="gvM-Y0-Zl2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EPP-O4-YKm"/>
-                            <constraint firstItem="eXF-Mn-C5V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="111" id="LU9-YT-abq"/>
-                            <constraint firstItem="OQQ-fd-duo" firstAttribute="top" secondItem="gvM-Y0-Zl2" secondAttribute="bottom" constant="22" id="Ude-ch-QKt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dvu-p5-mfk" secondAttribute="trailing" constant="39" id="XFI-r9-cw5"/>
+                            <constraint firstItem="XDj-Md-Wfx" firstAttribute="top" secondItem="Kvi-AQ-59h" secondAttribute="bottom" constant="7" id="G72-9A-Zuf"/>
+                            <constraint firstItem="NeX-dH-FWd" firstAttribute="top" secondItem="XDj-Md-Wfx" secondAttribute="bottom" constant="31" id="PLS-yl-bdz"/>
+                            <constraint firstItem="XDj-Md-Wfx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VzM-JQ-feO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OQQ-fd-duo" secondAttribute="bottom" constant="24" id="WQ5-hY-qhl"/>
                             <constraint firstItem="eXF-Mn-C5V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Z0w-kL-s5U"/>
-                            <constraint firstItem="uFH-uc-VOX" firstAttribute="top" secondItem="eXF-Mn-C5V" secondAttribute="bottom" constant="71" id="ZQj-cu-ohn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dvu-p5-mfk" secondAttribute="trailing" constant="41" id="Zj2-B2-9gb"/>
                             <constraint firstItem="OQQ-fd-duo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b5q-N2-l2e"/>
-                            <constraint firstItem="Kvi-AQ-59h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bj1-RQ-3v1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OQQ-fd-duo" secondAttribute="bottom" constant="67" id="ogx-4i-1xq"/>
+                            <constraint firstItem="Kvi-AQ-59h" firstAttribute="top" secondItem="eXF-Mn-C5V" secondAttribute="bottom" constant="31.5" id="ddX-Zk-Ujq"/>
+                            <constraint firstItem="Dvu-p5-mfk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="k3f-Ju-ESk"/>
+                            <constraint firstItem="OQQ-fd-duo" firstAttribute="top" secondItem="gvM-Y0-Zl2" secondAttribute="bottom" constant="19" id="oKn-Jv-XUF"/>
+                            <constraint firstItem="Kvi-AQ-59h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pqU-nw-ubd"/>
+                            <constraint firstItem="eXF-Mn-C5V" firstAttribute="top" secondItem="Dvu-p5-mfk" secondAttribute="bottom" constant="18.5" id="r6U-E1-614"/>
                             <constraint firstItem="uFH-uc-VOX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yUK-2x-FFD"/>
+                            <constraint firstItem="NeX-dH-FWd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z7o-Z2-2XV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s5H-ef-1TW"/>
@@ -90,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="111"/>
+            <point key="canvasLocation" x="1240.5797101449277" y="110.49107142857143"/>
         </scene>
         <!--End Game View Controller-->
         <scene sceneID="ozC-3i-EbU">
@@ -244,6 +261,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="nfU-gn-RDC"/>
         <segue reference="MHE-RW-qWj"/>
     </inferredMetricsTieBreakers>
     <resources>

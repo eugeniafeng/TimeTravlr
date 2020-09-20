@@ -19,17 +19,20 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     var highScore = 0
     var roundsCount = 0
     
+    var location: [String:String] = [:]
+    var image: UIImage?
+    
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var guessTextField: UITextField!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var correctAnswerLabel: UILabel!
     @IBAction func checkButtonTouchedUp(_ sender: UIButton) {
-        let year = places[baseImages[roundsCount]]
+        let year = Int(location["year1"]!)
         guard let guess = Int(guessTextField.text ?? "0") else { return }
         var roundScore = 0
         
-        if checkButton.titleLabel!.text == "Next" && roundsCount == 5 {
+        if checkButton.titleLabel!.text == "Next" && roundsCount == 18 {
             performSegue(withIdentifier: "endGame", sender: nil)
         }
         else if checkButton.titleLabel!.text == "Check" {
@@ -57,8 +60,12 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             guessTextField.isEnabled = true
             checkButton.setTitle("Check", for: .normal)
             scoreLabel.text = "Score: " + String(score)
-            gameImage.image = baseImages[roundsCount]
+            location = Constants.IMAGES[roundsCount]
+            let image1FileName = getImageFileName(location["location"]!, location["year1"]!)
+            image = UIImage(named: image1FileName)!
+            gameImage.image = image
             createTapGestureForRemovingKeyboard()
+            setUpKeyboardObservers()
 
         }
         
@@ -69,9 +76,13 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        baseImages.shuffle()
+        Constants.IMAGES.shuffle()
         createTapGestureForRemovingKeyboard()
-        gameImage.image = baseImages[roundsCount]
+        setUpKeyboardObservers()
+        location = Constants.IMAGES[roundsCount]
+        let image1FileName = getImageFileName(location["location"]!, location["year1"]!)
+        image = UIImage(named: image1FileName)!
+        gameImage.image = image
         correctAnswerLabel.text = " "
         scoreLabel.text = "Score: " + String(score)
 
@@ -101,11 +112,42 @@ class GameViewController: UIViewController, UITextFieldDelegate {
 //        getImageFromUrl.resume()
     }
     
+    private func getImageFileName(_ location: String, _ year: String) -> String {
+        let firstWord = location.components(separatedBy: " ")[0].lowercased().replacingOccurrences(of: ",", with: "")
+        return firstWord + year
+    }
+    
     // Creates a tap gesture for removing any visible keyboard when the screen is tapped.
      private func createTapGestureForRemovingKeyboard() {
          let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
          view.addGestureRecognizer(tap)
      }
+    
+    /// Sets up observers for shifting screen when keyboard appears or disappears.
+    private func setUpKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    /// Slides screen up when keyboard appears.
+    @objc internal func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y >= 0 {
+            self.view.frame.origin.y -= 130
+        }
+    }
+
+    /// Slides screen back down when keyboard disappears.
+    @objc internal func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y < 0 {
+            self.view.frame.origin.y += 130
+        }
+    }
+
+    /// Removes keyboard from screen when "return" key is pressed.
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     func convertToGrayScale(image: UIImage) -> UIImage {
 
@@ -146,7 +188,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? EndGameViewController {
-            vc.image = baseImages[4]
+            vc.image = image!
             vc.score = self.score
             vc.highScore = self.highScore
         }
