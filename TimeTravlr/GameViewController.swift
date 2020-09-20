@@ -54,6 +54,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             randomInt = Int.random(in: 0..<10)
             scoreLabel.text = "Score: " + String(score)
             gameImage.image = baseImages[randomInt]
+            createTapGestureForRemovingKeyboard()
 
         }
         
