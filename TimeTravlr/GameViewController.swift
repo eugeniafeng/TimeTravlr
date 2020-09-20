@@ -11,11 +11,10 @@ import UIKit
 class GameViewController: UIViewController, UITextFieldDelegate {
     
     let places: [UIImage: Int] = [UIImage(named: "1902 Hawaii")!: 1902, UIImage(named: "1914 Porterville California")!: 1914, UIImage(named: "1915 Yosemite")!: 1915, UIImage(named: "1929 New York")!: 1929, UIImage(named: "1947 Philadelphia")!: 1947, UIImage(named: "1950 Old Faithful")!: 1950, UIImage(named: "1966 London")!: 1966, UIImage(named: "1971 New York")!: 1971, UIImage(named: "2016 Mount Rainier")!: 2016, UIImage(named: "2018 Yosemite")!: 2018]
-    let baseImages: [UIImage] = [UIImage(named: "1902 Hawaii")!, UIImage(named: "1914 Porterville California")!, UIImage(named: "1915 Yosemite")!, UIImage(named: "1929 New York")!, UIImage(named: "1947 Philadelphia")!, UIImage(named: "1950 Old Faithful")!, UIImage(named: "1966 London")!, UIImage(named: "1971 New York")!, UIImage(named: "2016 Mount Rainier")!, UIImage(named: "2018 Yosemite")!]
+    var baseImages: [UIImage] = [UIImage(named: "1902 Hawaii")!, UIImage(named: "1914 Porterville California")!, UIImage(named: "1915 Yosemite")!, UIImage(named: "1929 New York")!, UIImage(named: "1947 Philadelphia")!, UIImage(named: "1950 Old Faithful")!, UIImage(named: "1966 London")!, UIImage(named: "1971 New York")!, UIImage(named: "2016 Mount Rainier")!, UIImage(named: "2018 Yosemite")!]
     
     let URL_IMAGE = URL(string: "https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188336.jpg")
     
-    var randomInt = 0
     var score = 0
     var highScore = 0
     var roundsCount = 0
@@ -26,7 +25,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var correctAnswerLabel: UILabel!
     @IBAction func checkButtonTouchedUp(_ sender: UIButton) {
-        let year = places[baseImages[randomInt]]
+        let year = places[baseImages[roundsCount]]
         guard let guess = Int(guessTextField.text ?? "0") else { return }
         var roundScore = 0
         
@@ -51,9 +50,8 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             correctAnswerLabel.text = " "
             guessTextField.isEnabled = true
             checkButton.setTitle("Check", for: .normal)
-            randomInt = Int.random(in: 0..<10)
             scoreLabel.text = "Score: " + String(score)
-            gameImage.image = baseImages[randomInt]
+            gameImage.image = baseImages[roundsCount]
             createTapGestureForRemovingKeyboard()
 
         }
@@ -65,8 +63,9 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        baseImages.shuffle()
         createTapGestureForRemovingKeyboard()
-        gameImage.image = baseImages[randomInt]
+        gameImage.image = baseImages[roundsCount]
         correctAnswerLabel.text = " "
         scoreLabel.text = "Score: " + String(score)
 
@@ -141,7 +140,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? EndGameViewController {
-            vc.image = baseImages[randomInt]
+            vc.image = baseImages[4]
             vc.score = self.score
             vc.highScore = self.highScore
         }
